@@ -1,9 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import * as Animatable from "react-native-animatable";
 
-const HomeButton = () => {
+import { Colors } from "../../helpers/colors";
+
+const HomeButton = ({ onNavigate }) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onNavigate}>
       <Animatable.View
         animation={"pulse"}
         easing="ease-in-out"
@@ -30,10 +32,10 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#00bcc9",
+    backgroundColor: Colors.primaryGreen,
   },
   buttonText: {
-    color: "#fff",
+    color: Colors.primaryLight,
     fontSize: 24,
     fontWeight: "800",
   },

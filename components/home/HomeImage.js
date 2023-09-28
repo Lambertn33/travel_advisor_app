@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
-import * as Animatable from 'react-native-animatable';
+import * as Animatable from "react-native-animatable";
+import { Images } from "../../helpers/images";
 
 var deviceWidth = Dimensions.get("window").width;
 var deviceHeight = Dimensions.get("window").height;
@@ -9,7 +10,9 @@ const HomeImage = () => {
     <Animatable.Image
       animation="fadeIn"
       easing="ease-in-out"
-    style={styles.image} source={require("../../assets/hero.png")} />
+      style={styles.image}
+      source={Images.heroImage}
+    />
   );
 };
 

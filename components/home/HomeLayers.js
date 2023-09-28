@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions, View } from "react-native";
 import React from "react";
+import { Colors } from "../../helpers/colors";
 
 const deviceHeight = Dimensions.get("window").height;
 
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
     height: 300,
     borderRadius: 150,
     width: 300,
-    backgroundColor: "#00bcc9",
+    backgroundColor: Colors.primaryGreen,
   },
   rightLayer: {
     position: "absolute",
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     height: 300,
     borderRadius: 150,
     width: 300,
-    backgroundColor: "#e99265",
+    backgroundColor: Colors.primaryOrange,
   },
 });
 

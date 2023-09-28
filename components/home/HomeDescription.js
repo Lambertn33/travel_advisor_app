@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { Colors } from "../../helpers/colors";
 
 const HomeDescription = () => {
   return (
@@ -26,6 +27,6 @@ const styles = StyleSheet.create({
     fontWeight: "800",
   },
   coloredHeader: {
-    color: "#00bcc9",
+    color: Colors.primaryGreen,
   },
 });

@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { Colors } from "../../helpers/colors";
 
 const HomeHeader = () => {
   return (
@@ -22,12 +23,12 @@ const styles = StyleSheet.create({
     gap: 4
   },
   logo: {
-    backgroundColor: '#000',
+    backgroundColor: Colors.primaryDark,
     padding: 12,
     borderRadius: 50
   },
   logoText: {
-    color: '#00bcc9',
+    color: Colors.primaryGreen,
     fontSize: 20,
     fontWeight: '700'
   },

@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import * as Animatable from 'react-native-animatable';
 
 import {
   HomeButton,
@@ -10,7 +9,9 @@ import {
   HomeDescription,
 } from "../components/home";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
+  const navigateHandler = () => navigation.navigate("discover");
+
   return (
     <View style={styles.container}>
       <HomeHeader />
@@ -19,7 +20,7 @@ const HomeScreen = () => {
       <View style={styles.imageContainer}>
         <HomeImage />
       </View>
-      <HomeButton />
+      <HomeButton onNavigate={navigateHandler} />
     </View>
   );
 };
