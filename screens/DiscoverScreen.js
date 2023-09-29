@@ -1,12 +1,12 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
-import DiscoverHeader from "../components/discover/DiscoverHeader";
-import GoogleSearch from "../components/discover/GoogleSearch";
+import { StyleSheet, View } from "react-native";
+import { DiscoverHeader, GoogleSearch, MenuList } from "../components/discover";
 
 const DiscoverScreen = () => {
   return (
     <View style={styles.container}>
       <DiscoverHeader />
       <GoogleSearch />
+      <MenuList />
     </View>
   );
 };
@@ -17,5 +17,6 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 32,
     paddingHorizontal: 16,
+    gap: 6,
   },
 });
