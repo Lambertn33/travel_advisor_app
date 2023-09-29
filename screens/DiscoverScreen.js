@@ -1,22 +1,32 @@
-import { StyleSheet, View, ScrollView } from "react-native";
+import { ActivityIndicator, StyleSheet, View, ScrollView } from "react-native";
 import {
   DiscoverHeader,
   DiscoverSearch,
   MenuList,
 } from "../components/discover";
-import { PlacesHeader } from "../components/discover/places";
+import { PlacesHeader, PlacesList } from "../components/discover/places";
+import { useState } from "react";
+import { Colors } from "../helpers/colors";
 
 const DiscoverScreen = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <View style={styles.container}>
       <DiscoverHeader />
       <DiscoverSearch />
-      <ScrollView>
-        <MenuList />
-        <View style={styles.places}>
-          <PlacesHeader />
-        </View>
-      </ScrollView>
+
+      {isLoading ? (
+        <ActivityIndicator size={44} color={Colors.primaryGreen} />
+      ) : (
+        <ScrollView>
+          <MenuList />
+          <View style={styles.placesContainer}>
+            <PlacesHeader />
+            <PlacesList />
+          </View>
+        </ScrollView>
+      )}
     </View>
   );
 };
@@ -29,7 +39,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     gap: 6,
   },
-  places: {
+  spinnerContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  placesContainer: {
     paddingTop: 12,
+    gap: 24,
   },
 });

@@ -28,6 +28,7 @@ export default MenuList;
 
 const styles = StyleSheet.create({
   menuContainer: {
+    flex: 1,
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "flex-end",

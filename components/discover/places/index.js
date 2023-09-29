@@ -1,3 +1,4 @@
 import PlacesHeader from "./PlacesHeader";
+import PlacesList from "./PlacesList";
 
-export { PlacesHeader };
+export { PlacesHeader, PlacesList };
