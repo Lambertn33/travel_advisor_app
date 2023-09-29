@@ -1,4 +1,4 @@
-import { Images } from "../../helpers/images";
+import { Images } from "../../../helpers/images";
 
 export const menus = [
   {

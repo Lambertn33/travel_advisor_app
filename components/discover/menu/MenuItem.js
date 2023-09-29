@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import { Colors } from "../../helpers/colors";
+import { Colors } from "../../../helpers/colors";
 
 const MenuItem = ({ menu, menuActive, onActivateMenu }) => {
   const activateMenu = (key) => {
