@@ -1,5 +1,10 @@
 import { StyleSheet, View, ScrollView } from "react-native";
-import { DiscoverHeader, DiscoverSearch, MenuList } from "../components/discover";
+import {
+  DiscoverHeader,
+  DiscoverSearch,
+  MenuList,
+} from "../components/discover";
+import { PlacesHeader } from "../components/discover/places";
 
 const DiscoverScreen = () => {
   return (
@@ -8,6 +13,9 @@ const DiscoverScreen = () => {
       <DiscoverSearch />
       <ScrollView>
         <MenuList />
+        <View style={styles.places}>
+          <PlacesHeader />
+        </View>
       </ScrollView>
     </View>
   );
@@ -20,5 +28,8 @@ const styles = StyleSheet.create({
     paddingTop: 32,
     paddingHorizontal: 16,
     gap: 6,
+  },
+  places: {
+    paddingTop: 12,
   },
 });

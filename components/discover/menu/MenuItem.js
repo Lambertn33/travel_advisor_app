@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   menuActive: {
-    backgroundColor: "#cccccc",
+    backgroundColor: Colors.secondaryLight,
     borderRadius: 50,
     overflow: "hidden",
   },
