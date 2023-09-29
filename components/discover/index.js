@@ -1,5 +1,5 @@
 import DiscoverHeader from "./DiscoverHeader";
-import DiscoverSearch from "./DiscoverSearch";
+import PlacesSearch from "./PlacesSearch";
 import MenuList from "./menu/MenuList";
 
-export { DiscoverHeader, DiscoverSearch, MenuList };
+export { DiscoverHeader, PlacesSearch, MenuList };

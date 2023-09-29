@@ -14,8 +14,6 @@ const PlacesHeader = () => {
   );
 };
 
-export default PlacesHeader;
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
@@ -35,3 +33,6 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
 });
+
+export default PlacesHeader;
+

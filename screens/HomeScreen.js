@@ -10,7 +10,7 @@ import {
 } from "../components/home";
 
 const HomeScreen = ({ navigation }) => {
-  const navigateHandler = () => navigation.navigate("discover");
+  const navigateHandler = () => navigation.navigate("places");
 
   return (
     <View style={styles.container}>

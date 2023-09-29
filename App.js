@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import HomeScreen from "./screens/HomeScreen";
-import DiscoverScreen from "./screens/DiscoverScreen";
+import PlacesScreen from "./screens/PlacesScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +17,7 @@ export default function App() {
           name="home"
           component={HomeScreen}
         />
-        <Stack.Screen name="discover" component={DiscoverScreen}/>
+        <Stack.Screen name="places" component={PlacesScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

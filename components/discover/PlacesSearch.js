@@ -2,7 +2,7 @@ import { ScrollView } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import React from "react";
 
-const DiscoverSearch = () => {
+const PlacesSearch = () => {
   return (
     <ScrollView
       keyboardShouldPersistTaps="handled"
@@ -25,4 +25,4 @@ const DiscoverSearch = () => {
   );
 };
 
-export default DiscoverSearch;
+export default PlacesSearch;

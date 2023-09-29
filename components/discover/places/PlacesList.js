@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
 import PlaceItem from "./PlaceItem";
 
 const PlacesList = ({ places }) => {

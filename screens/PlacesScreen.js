@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { ActivityIndicator, StyleSheet, View, ScrollView } from "react-native";
 import {
   DiscoverHeader,
-  DiscoverSearch,
+  PlacesSearch,
   MenuList,
 } from "../components/discover";
 import { PlacesHeader, PlacesList } from "../components/discover/places";
 import { getPlaces } from "../api/places";
 import { Colors } from "../helpers/colors";
 
-const DiscoverScreen = () => {
+const PlacesScreen = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [places, setPlaces] = useState([]);
 
@@ -26,7 +26,7 @@ const DiscoverScreen = () => {
   return (
     <View style={styles.container}>
       <DiscoverHeader />
-      <DiscoverSearch />
+      <PlacesSearch />
 
       {isLoading ? (
         <View style={styles.spinnerContainer}>
@@ -47,8 +47,6 @@ const DiscoverScreen = () => {
   );
 };
 
-export default DiscoverScreen;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -64,3 +62,6 @@ const styles = StyleSheet.create({
     gap: 24,
   },
 });
+
+export default PlacesScreen;
+
