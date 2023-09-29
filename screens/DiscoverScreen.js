@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { ActivityIndicator, StyleSheet, View, ScrollView } from "react-native";
 import {
   DiscoverHeader,
@@ -5,11 +6,22 @@ import {
   MenuList,
 } from "../components/discover";
 import { PlacesHeader, PlacesList } from "../components/discover/places";
-import { useState } from "react";
+import { getPlaces } from "../api/places";
 import { Colors } from "../helpers/colors";
 
 const DiscoverScreen = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [places, setPlaces] = useState([]);
+
+  useEffect(() => {
+    const fetchPlaces = async () => {
+      setIsLoading(true);
+      let places = await getPlaces();
+      setPlaces(places);
+      setIsLoading(false);
+    };
+    fetchPlaces();
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -17,15 +29,19 @@ const DiscoverScreen = () => {
       <DiscoverSearch />
 
       {isLoading ? (
-        <ActivityIndicator size={44} color={Colors.primaryGreen} />
+        <View style={styles.spinnerContainer}>
+          <ActivityIndicator size={44} color={Colors.primaryGreen} />
+        </View>
       ) : (
-        <ScrollView>
+        <>
+          <ScrollView>
           <MenuList />
-          <View style={styles.placesContainer}>
-            <PlacesHeader />
-            <PlacesList />
-          </View>
-        </ScrollView>
+            <View style={styles.placesContainer}>
+              <PlacesHeader />
+              <PlacesList places={places} />
+            </View>
+          </ScrollView>
+        </>
       )}
     </View>
   );
@@ -35,14 +51,13 @@ export default DiscoverScreen;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 32,
-    paddingHorizontal: 16,
-    gap: 6,
+    flex: 1,
+    paddingVertical: 32,
+     paddingHorizontal: 16,
+     gap: 6,
   },
   spinnerContainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
   },
   placesContainer: {
     paddingTop: 12,
