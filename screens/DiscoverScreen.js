@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import { DiscoverHeader, GoogleSearch, MenuList } from "../components/discover";
 
 const DiscoverScreen = () => {
@@ -6,7 +6,9 @@ const DiscoverScreen = () => {
     <View style={styles.container}>
       <DiscoverHeader />
       <GoogleSearch />
-      <MenuList />
+      <ScrollView>
+        <MenuList />
+      </ScrollView>
     </View>
   );
 };

@@ -1,14 +1,24 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { Colors } from "../../helpers/colors";
 
-const MenuItem = ({ menu }) => {
+const MenuItem = ({ menu, menuActive, onActivateMenu }) => {
+  const activateMenu = (key) => {
+    onActivateMenu(key);
+  };
+
   return (
-    <View style={styles.menu}>
-      <View style={styles.menuImageContainer}>
+    <TouchableOpacity style={styles.menu} onPress={() => activateMenu(menu.key)}>
+      <View
+        style={
+          menuActive
+            ? [styles.menuImageContainer, styles.menuActive]
+            : styles.menuImageContainer
+        }
+      >
         <Image source={menu.image} style={styles.menuImage} />
       </View>
       <Text style={styles.menuTitle}>{menu.title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -19,6 +29,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 2,
   },
+  menuActive: {
+    backgroundColor: "#cccccc",
+    borderRadius: 50,
+    overflow: "hidden",
+  },
   menuImageContainer: {
     width: 60,
     height: 60,
@@ -26,7 +41,7 @@ const styles = StyleSheet.create({
   menuImage: {
     width: "100%",
     height: "100%",
-    objectFit: 'contain'
+    objectFit: "contain",
   },
   menuTitle: {
     fontWeight: "700",
