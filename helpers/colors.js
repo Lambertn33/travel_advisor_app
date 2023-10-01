@@ -3,5 +3,6 @@ export const Colors = {
   primaryLight: "#fff",
   secondaryLight: '#ccc',
   primaryDark: "#000",
-  primaryOrange: "#e99265"
+  primaryOrange: "#f5cfbc",
+  darkOrange: "#df6020"
 };
