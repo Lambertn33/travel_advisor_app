@@ -1,10 +1,14 @@
-import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, TouchableOpacity, View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Colors } from "../../../helpers/colors";
 
-const PlaceImage = ({ image }) => {
+const PlaceImage = ({ place }) => {
   const navigation = useNavigation();
+
+  const placeImage = place?.photo?.images?.large?.url
+    ? place?.photo?.images?.large?.url
+    : "https://cdn.pixabay.com/photo/2015/10/30/12/22/eat-1014025_1280.jpg";
 
   const navigateBack = () => navigation.goBack();
   const ImageIcon = ({ additionalStyles, name, color, onPress }) => {
@@ -20,7 +24,7 @@ const PlaceImage = ({ image }) => {
 
   return (
     <View style={styles.imageContainer}>
-      <Image source={{ uri: image }} style={styles.image} />
+      <Image source={{ uri: placeImage }} style={styles.image} />
       <View style={styles.imageActions}>
         <ImageIcon
           onPress={navigateBack}
@@ -34,6 +38,15 @@ const PlaceImage = ({ image }) => {
           name="heartbeat"
         />
       </View>
+      <View style={styles.priceContainer}>
+        <View style={styles.price}>
+          <Text style={styles.priceLevel}>{place?.price_level}</Text>
+          <Text style={styles.priceAmount}>{place?.price}</Text>
+        </View>
+        <View style={styles.status}>
+          <Text style={styles.statusText}>{place?.open_now_text}</Text>
+        </View>
+      </View>
     </View>
   );
 };
@@ -42,6 +55,7 @@ export default PlaceImage;
 
 const styles = StyleSheet.create({
   imageContainer: {
+    position: "relative",
     height: 250,
     width: "100%",
   },
@@ -59,6 +73,39 @@ const styles = StyleSheet.create({
     right: 20,
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  priceContainer: {
+    position: "absolute",
+    bottom: 20,
+    left: 20,
+    right: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  price: {
+    gap: 4,
+    alignItems: "center",
+  },
+  status: {
+    backgroundColor: Colors.primaryGreen,
+    paddingHorizontal: 4,
+    paddingVertical: 1,
+    borderRadius: 4
+  },
+  statusText: {
+    fontSize: 16,
+    color: Colors.primaryLight,
+    fontWeight: '900'
+  },
+  priceLevel: {
+    color: Colors.primaryLight,
+    fontWeight: "700",
+  },
+  priceAmount: {
+    color: Colors.primaryLight,
+    fontWeight: "700",
+    fontSize: 24,
   },
   imageAction: {
     height: 36,
