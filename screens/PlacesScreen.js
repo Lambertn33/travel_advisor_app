@@ -1,10 +1,6 @@
 import { useState, useEffect } from "react";
 import { ActivityIndicator, StyleSheet, View, ScrollView } from "react-native";
-import {
-  DiscoverHeader,
-  PlacesSearch,
-  MenuList,
-} from "../components/discover";
+import { DiscoverHeader, PlacesSearch, MenuList } from "../components/discover";
 import { PlacesHeader, PlacesList } from "../components/discover/places";
 import { getPlaces } from "../api/places";
 import { Colors } from "../helpers/colors";
@@ -35,7 +31,7 @@ const PlacesScreen = () => {
       ) : (
         <>
           <ScrollView>
-          <MenuList />
+            <MenuList />
             <View style={styles.placesContainer}>
               <PlacesHeader />
               <PlacesList places={places} />
@@ -51,8 +47,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingVertical: 32,
-     paddingHorizontal: 16,
-     gap: 6,
+    paddingHorizontal: 16,
+    gap: 6,
   },
   spinnerContainer: {
     flex: 1,
@@ -64,4 +60,3 @@ const styles = StyleSheet.create({
 });
 
 export default PlacesScreen;
-

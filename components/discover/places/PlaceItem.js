@@ -1,10 +1,18 @@
 import { FontAwesome } from "@expo/vector-icons";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { Colors } from "../../../helpers/colors";
 
 const PlaceItem = ({ place }) => {
+  const navigation = useNavigation();
+
+  const navigateHandler = () =>
+    navigation.navigate("place", {
+      place: place,
+    });
+
   return (
-    <View style={styles.card}>
+    <TouchableOpacity style={styles.card} onPress={navigateHandler}>
       <View style={styles.imageContainer}>
         <Image
           source={{
@@ -20,15 +28,17 @@ const PlaceItem = ({ place }) => {
           <Text style={styles.title}>{place?.name}</Text>
           <View style={styles.locationContainer}>
             <FontAwesome name="map-marker" size={24} color="black" />
-            <Text>{place?.location_string?.length > 12 ?
-                `${place?.location_string?.slice(0, 12)}....`: place?.location_string?.length
-        }</Text>
+            <Text>
+              {place?.location_string?.length > 12
+                ? `${place?.location_string?.slice(0, 12)}....`
+                : place?.location_string?.length}
+            </Text>
           </View>
         </>
       ) : (
         <></>
       )}
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -51,8 +61,8 @@ const styles = StyleSheet.create({
   },
   image: {
     objectFit: "fill",
-    width: '100%',
-    height: '100%'
+    width: "100%",
+    height: "100%",
   },
   locationContainer: {
     flexDirection: "row",
