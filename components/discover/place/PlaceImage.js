@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   },
   price: {
     gap: 4,
-    alignItems: "center",
+    alignItems: "flex_end",
   },
   status: {
     backgroundColor: Colors.primaryGreen,

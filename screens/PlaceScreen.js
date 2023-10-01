@@ -1,12 +1,13 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { PlaceImage } from "../components/discover/place";
+import { PlaceDetails, PlaceImage } from "../components/discover/place";
 
 const PlaceScreen = ({ route }) => {
   const { place } = route.params;
   return (
     <ScrollView style={styles.container}>
       <PlaceImage place={place} />
+      <PlaceDetails place={place}/>
     </ScrollView>
   );
 };

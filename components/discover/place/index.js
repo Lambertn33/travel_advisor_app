@@ -1,3 +1,4 @@
 import PlaceImage from "./PlaceImage";
+import PlaceDetails from "./PlaceDetails";
 
-export { PlaceImage }
+export { PlaceImage, PlaceDetails }
