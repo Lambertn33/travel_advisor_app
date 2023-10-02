@@ -23,7 +23,7 @@ export default PlaceDescription;
 const styles = StyleSheet.create({
   container: {
     marginTop: 16,
-    gap: 4,
+    gap: 16,
   },
   cuisinesContainer: {
     flexDirection: "row",

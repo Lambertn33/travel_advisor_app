@@ -1,20 +1,15 @@
-import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 
 import { menus } from "./menus";
 import MenuItem from "./MenuItem";
 
-const MenuList = () => {
-  const [activeType, setActiveType] = useState("hotels");
-
-  const activateMenuHandler = (key) => setActiveType(key);
-
+const MenuList = ({ activeType, onActivateMenu }) => {
   const renderMenus = () => {
     return menus.map((menu) => {
       return (
         <MenuItem
           menuActive={activeType === menu.key}
-          onActivateMenu={activateMenuHandler}
+          onActivateMenu={onActivateMenu}
           key={menu.key}
           menu={menu}
         />

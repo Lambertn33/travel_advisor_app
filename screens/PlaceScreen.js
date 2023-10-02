@@ -1,10 +1,10 @@
 import { ScrollView, StyleSheet } from "react-native";
-import React from "react";
 import {
   PlaceDescription,
   PlaceDetails,
   PlaceIcons,
   PlaceImage,
+  PlaceAddress
 } from "../components/discover/place";
 
 const PlaceScreen = ({ route }) => {
@@ -15,6 +15,7 @@ const PlaceScreen = ({ route }) => {
       <PlaceDetails place={place} />
       <PlaceIcons place={place} />
       <PlaceDescription place={place} />
+      <PlaceAddress place={place} />
     </ScrollView>
   );
 };

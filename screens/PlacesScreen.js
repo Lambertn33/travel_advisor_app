@@ -8,21 +8,48 @@ import { Colors } from "../helpers/colors";
 const PlacesScreen = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [places, setPlaces] = useState([]);
+  const [menu, setMenu] = useState("hotels");
+  const [geometry, setGeometry] = useState({
+    southwest: {
+      lat: null,
+      lng: null,
+    },
+    northeast: {
+      lat: null,
+      lng: null,
+    },
+  });
+
+  const activateMenuHandler = (key) => setMenu(key);
+
+  const setGeometryHandler = (data) => {
+    const { northeast, southwest } = data;
+    setGeometry({
+      southwest: {
+        lat: southwest?.lat,
+        lng: southwest?.lng,
+      },
+      northeast: {
+        lat: northeast?.lat,
+        lng: northeast?.lng,
+      },
+    });
+  };
 
   useEffect(() => {
     const fetchPlaces = async () => {
       setIsLoading(true);
-      let places = await getPlaces();
+      let places = await getPlaces(menu, geometry.northeast, geometry.southwest);
       setPlaces(places);
       setIsLoading(false);
     };
     fetchPlaces();
-  }, []);
+  }, [geometry, menu]);
 
   return (
     <View style={styles.container}>
       <DiscoverHeader />
-      <PlacesSearch />
+      <PlacesSearch onChangePlace={setGeometryHandler} />
 
       {isLoading ? (
         <View style={styles.spinnerContainer}>
@@ -31,7 +58,10 @@ const PlacesScreen = () => {
       ) : (
         <>
           <ScrollView>
-            <MenuList />
+            <MenuList
+              activeType={menu}
+              onActivateMenu={activateMenuHandler}
+            />
             <View style={styles.placesContainer}>
               <PlacesHeader />
               <PlacesList places={places} />

@@ -4,8 +4,8 @@ import PlaceItem from "./PlaceItem";
 
 const PlacesList = ({ places }) => {
   const renderPlaces = () => {
-    return places.map((place) => (
-      <PlaceItem key={place.location_id} place={place} />
+    return places.map((place, key) => (
+      <PlaceItem key={key} place={place} />
     ));
   };
 

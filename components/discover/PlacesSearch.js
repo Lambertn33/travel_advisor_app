@@ -1,8 +1,7 @@
 import { ScrollView } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-import React from "react";
 
-const PlacesSearch = () => {
+const PlacesSearch = ({ onChangePlace }) => {
   return (
     <ScrollView
       keyboardShouldPersistTaps="handled"
@@ -14,7 +13,7 @@ const PlacesSearch = () => {
         placeholder="Search"
         fetchDetails={true}
         onPress={(data, details = null) => {
-          console.log('details', details.geometry.viewport);
+          onChangePlace(details?.geometry?.viewport);
         }}
         query={{
           key: process.env.EXPO_PUBLIC_GOOGLE_API_KEY,
